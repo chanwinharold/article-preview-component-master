@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+* {
+  margin: 0;
+}
 
+body {
+  font-size: 1em;
+  font-family: Manrope, sans-serif;
+  background-color: hsl(210, 46%, 95%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body main {
+  display: flex;
+  max-width: 750px;
+  margin: 30px;
+  border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  body main {
+    max-width: 300px;
+    flex-direction: column;
+  }
+}
+body main img {
+  max-width: 300px;
+  border-radius: 10px 0 0 10px;
+}
+@media screen and (max-width: 768px) {
+  body main img {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 30px;
+  border-radius: 0 10px 10px 0;
+  background-color: white;
+}
+@media screen and (max-width: 768px) {
+  .main {
+    border-radius: 0 0 10px 10px;
+  }
+}
+.main__title {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.main__profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main__profile__container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.main__profile__container__image {
+  width: 45px;
+  border-radius: 50%;
+}
+.main__profile__container__content {
+  display: flex;
+  flex-direction: column;
+}
+.main__profile__share {
+  background-color: hsla(212, 23%, 69%, 0.5);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
 
 /*# sourceMappingURL=style.css.map */
