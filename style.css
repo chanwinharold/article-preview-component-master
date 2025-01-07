@@ -57,6 +57,8 @@ body main img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 5;
 }
 .main__profile__container {
   display: flex;
@@ -71,10 +73,63 @@ body main img {
   display: flex;
   flex-direction: column;
 }
+.main__profile__social-media-links {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .main__profile__social-media-links {
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    border-radius: 10px;
+    background-color: rgb(38, 35, 35);
+    padding: 20px;
+    margin: 30px;
+    position: absolute;
+    bottom: 50%;
+    left: 55%;
+    z-index: 10;
+  }
+  .main__profile__social-media-links p {
+    color: white;
+    font-size: 0.8em;
+    letter-spacing: 0.6em;
+  }
+  .main__profile__social-media-links img {
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__profile__social-media-links {
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(38, 35, 35);
+    padding: 20px;
+    margin: 30px;
+    position: absolute;
+    bottom: 50%;
+    left: -20%;
+    z-index: 10;
+  }
+  .main__profile__social-media-links p {
+    color: white;
+    font-size: 0.8em;
+    letter-spacing: 0.6em;
+  }
+  .main__profile__social-media-links img {
+    border-radius: 0;
+  }
+}
 .main__profile__share {
   background-color: hsla(212, 23%, 69%, 0.5);
   padding: 10px;
   border-radius: 50%;
+}
+
+.active {
+  display: flex;
 }
 
 .attribution {
