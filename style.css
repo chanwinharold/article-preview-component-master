@@ -4,132 +4,150 @@
 }
 
 body {
-  font-size: 1em;
-  font-family: Manrope, sans-serif;
-  background-color: hsl(210, 46%, 95%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: Manrope, sans-serif;
+  font-size: 1em;
+  background-color: #edf2f8;
 }
-body main {
-  display: flex;
-  max-width: 750px;
-  margin: 30px;
+
+main {
   border-radius: 10px;
+  background-color: white;
+  margin: 30px;
 }
 @media screen and (max-width: 768px) {
-  body main {
-    max-width: 300px;
+  main {
+    width: 375px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
-body main img {
-  max-width: 300px;
-  border-radius: 10px 0 0 10px;
+@media screen and (min-width: 768px) {
+  main {
+    max-width: 750px;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media screen and (max-width: 768px) {
-  body main img {
+  main > img {
+    width: 100%;
+    height: 200px;
     border-radius: 10px 10px 0 0;
   }
 }
-
-.main {
+@media screen and (min-width: 768px) {
+  main > img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px 0 0 10px;
+  }
+}
+main .main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 15px;
   padding: 30px;
   border-radius: 0 10px 10px 0;
-  background-color: white;
 }
-@media screen and (max-width: 768px) {
-  .main {
-    border-radius: 0 0 10px 10px;
-  }
+main .main__title {
+  font-size: 1.2em;
+  font-weight: 700;
 }
-.main__title {
-  font-size: 1.5em;
-  font-weight: 600;
+main .main__content {
+  color: #49556b;
 }
-.main__profile {
+main .main__profile {
+  width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
-  position: relative;
-  z-index: 5;
+  align-items: center;
 }
-.main__profile__container {
+main .main__profile__container {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   gap: 15px;
 }
-.main__profile__container__image {
-  width: 45px;
+main .main__profile__container__image {
+  width: 40px;
   border-radius: 50%;
 }
-.main__profile__container__content {
+main .main__profile__container__content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
-.main__profile__social-media-links {
+main .main__profile__container__content span {
+  color: #49556b;
+}
+main .main__profile__share {
+  background-color: rgba(73, 85, 107, 0.2);
+  padding: 8px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.social-media-links {
   display: none;
+  height: 75px;
+  gap: 15px;
+  background-color: #49556b;
+  z-index: 5;
+}
+.social-media-links p {
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .social-media-links {
+    flex-basis: auto;
+    width: 66vh;
+    padding-left: 20px;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    bottom: 0;
+  }
 }
 @media screen and (min-width: 768px) {
-  .main__profile__social-media-links {
-    justify-content: space-around;
-    align-items: center;
+  .social-media-links {
     width: 200px;
-    border-radius: 10px;
-    background-color: rgb(38, 35, 35);
-    padding: 20px;
-    margin: 30px;
+    height: 50px;
+    border-radius: 5px;
     position: absolute;
-    bottom: 50%;
-    left: 55%;
-    z-index: 10;
-  }
-  .main__profile__social-media-links p {
-    color: white;
-    font-size: 0.8em;
-    letter-spacing: 0.6em;
-  }
-  .main__profile__social-media-links img {
-    border-radius: 0;
+    top: 52vh;
+    left: 70vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .main__profile__social-media-links {
-    justify-content: space-around;
+  .active {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    border-radius: 10px;
-    background-color: rgb(38, 35, 35);
-    padding: 20px;
-    margin: 30px;
-    position: absolute;
-    bottom: 50%;
-    left: -20%;
-    z-index: 10;
-  }
-  .main__profile__social-media-links p {
-    color: white;
-    font-size: 0.8em;
-    letter-spacing: 0.6em;
-  }
-  .main__profile__social-media-links img {
-    border-radius: 0;
   }
 }
-.main__profile__share {
-  background-color: hsla(212, 23%, 69%, 0.5);
-  padding: 10px;
-  border-radius: 50%;
-}
-
-.active {
-  display: flex;
+@media screen and (min-width: 768px) {
+  .active {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .attribution {

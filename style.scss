@@ -1,137 +1,138 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+// Variables
+$bodyBgColor: #edf2f8;
+$shareBgColor: #49556b;
+
+// Mixin
+@mixin flexbox($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
 * { margin: 0; }
 
-body {
-    font-size: 1em;
-    font-family: Manrope, sans-serif;
-    background-color: hsl(210, 46%, 95%);
 
+body {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    main {
-        display: flex;
+    @include flexbox(column, center, center);
+    font-family: Manrope, sans-serif;
+    font-size: 1em;
+    background-color: $bodyBgColor;
+}
+
+main {
+    @media screen and (max-width: 768px) {
+        width: 375px;
+        @include flexbox(column, center, center);
+    }
+    @media screen and (min-width: 768px) {
         max-width: 750px;
-        margin: 30px;
-        border-radius: 10px;
+        height: 300px;
+        @include flexbox(row, center, center);
+    }
+    border-radius: 10px;
+    background-color: white;
+    margin: 30px;
+    > img {
+
         @media screen and (max-width: 768px) {
-            max-width: 300px;
-            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            border-radius: 10px 10px 0 0;
         }
-        img {
-            max-width: 300px;
+        @media screen and (min-width: 768px) {
+            width: 300px;
+            height: 300px;
             border-radius: 10px 0 0 10px;
-            @media screen and (max-width: 768px) {
-                border-radius: 10px 10px 0 0;
+        }
+    }
+    .main {
+        @include flexbox(column, center, center);
+        gap: 15px;
+        padding: 30px;
+        border-radius: 0 10px 10px 0;
+
+        &__title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        &__content {
+            color: $shareBgColor;
+        }
+        &__profile {
+            width: 100%;
+            @include flexbox(row, space-between, center);
+
+            &__container {
+                @include flexbox(row, flex-start, center);
+                gap: 15px;
+
+                &__image {
+                    width: 40px;
+                    border-radius: 50%;
+                }
+                &__content {
+                    @include flexbox(column, center, flex-start);
+
+                    span {
+                        color: $shareBgColor;
+                    }
+                }
+            }
+            &__share {
+                background-color: rgba(73, 85, 107, 0.2);
+                padding: 8px;
+                border-radius: 50%;
+                z-index: 10;
             }
         }
     }
 }
 
-.main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.social-media-links {
+    display: none;
+    height: 75px;
     gap: 15px;
-
-    padding: 30px;
-    border-radius: 0 10px 10px 0;
-    background-color: white;
-    @media screen and (max-width: 768px) {
+    background-color: $shareBgColor;
+    z-index: 5;
+    p {
+        color: white;
+    }
+}
+@media screen and (max-width: 768px) {
+    .social-media-links {
+        flex-basis: auto;
+        width: calc(66vh);
+        padding-left: 20px;
         border-radius: 0 0 10px 10px;
+        position: absolute;
+        bottom: 0;
     }
-    &__title {
-        font-size: 1.5em;
-        font-weight: 600;
-    }
-    &__profile {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
 
-        position: relative;
-        z-index: 5;
-        &__container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            &__image {
-                width: 45px;
-                border-radius: 50%;
-            }
-            &__content {
-                display: flex;
-                flex-direction: column;
-            }
-        }
-        &__social-media-links {
-            display: none;
-            @media screen and (min-width: 768px) {
-                justify-content: space-around;
-                align-items: center;
+}
+@media screen and (min-width: 768px) {
+    .social-media-links {
+        width: 200px;
+        height: 50px;
+        border-radius: 5px;
 
-                width: 200px;
-                border-radius: 10px;
-                background-color: rgba(38, 35, 35, 1);
-
-                padding: 20px;
-                margin: 30px;
-
-                position: absolute;
-                bottom: 50%;
-                left: 55%;
-                z-index: 10;
-
-                p {
-                    color: white;
-                    font-size: 0.8em;
-                    letter-spacing: 0.6em;
-                }
-
-                img {
-                    border-radius: 0;
-                }
-            }
-            @media screen and (max-width: 768px) {
-                justify-content: space-around;
-                align-items: center;
-
-                width: 100%;
-                border-radius: 10px;
-                background-color: rgba(38, 35, 35, 1);
-
-                padding: 20px;
-                margin: 30px;
-
-                position: absolute;
-                bottom: 50%;
-                left: -20%;
-                z-index: 10;
-
-                p {
-                    color: white;
-                    font-size: 0.8em;
-                    letter-spacing: 0.6em;
-                }
-
-                img {
-                    border-radius: 0;
-                }
-            }
-        }
-        &__share {
-            background-color: hsla(212, 23%, 69%, 0.5);
-            padding: 10px;
-            border-radius: 50%;
-        }
+        position: absolute;
+        top: 52vh;
+        left: 70vw;
     }
 }
 
 .active {
-    display: flex;
+
+    @media screen and (max-width: 768px) {
+        @include flexbox(row, flex-start, center);
+    }
+    @media screen and (min-width: 768px) {
+        @include flexbox(row, center, center);
+    }
 }
 
 .attribution {
